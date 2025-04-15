@@ -23,21 +23,23 @@ model_costs = {
 }
 
 # Set up the page
-st.set_page_config(page_title="Token Counter & Cost Estimator", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Token Counter & Cost Estimator", page_icon="📚", layout="centered")
 
 # Title and Introduction
 st.title("📚 Token Counter & Cost Estimator")
 st.markdown("""
     This tool helps you calculate the number of tokens in your text and estimate the cost for using various AI models, such as GPT-3, GPT-4, and more.
     You can choose from a variety of models in the dropdown and see the estimated cost based on the number of tokens.
-""", unsafe_allow_html=True)
+""")
+
+# Center the input and results section
+st.markdown("<style> .stTextArea {text-align: center;} </style>", unsafe_allow_html=True)
 
 # Text area input for the user to input their content
-text_input = st.text_area("**Type or paste your text here...**", height=200)
+text_input = st.text_area("**Type or paste your text here...**", height=200, help="Paste any text you want to analyze for token count.")
 
 # Model selection dropdown
-st.subheader("Select an AI Model for Token Count & Cost Estimation", anchor="model_selector")
-
+st.subheader("Select an AI Model for Token Count & Cost Estimation")
 model_name = st.selectbox("**Choose a Model:**", list(model_costs.keys()), help="Choose the AI model you'd like to use for token cost estimation.")
 
 # Button to calculate token count and cost
@@ -54,12 +56,13 @@ if st.button("Calculate", use_container_width=True):
         total_cost = tokens * cost_per_token
         
         # Display results
+        st.markdown(f"<div style='text-align: center;'><h3 style='font-size: 20px;'>Results</h3></div>", unsafe_allow_html=True)
         st.markdown(f"<div style='text-align: center;'><h3 style='font-size: 20px;'>Number of tokens: {tokens}</h3></div>", unsafe_allow_html=True)
         st.markdown(f"<div style='text-align: center;'><h3 style='font-size: 20px;'>Estimated cost for '{model_name}' : ${total_cost:.6f}</h3></div>", unsafe_allow_html=True)
 
 # Footer (Optional)
 st.markdown("""
     <footer style="text-align:center;">
-        <p>Powered by Vinay Maurya | <a href="https://github.com/VinayM563">GitHub</a></p>
+        <p>Powered by Vinay Maurya | <a href="https://github.com/VinayM573">GitHub</a></p>
     </footer>
 """, unsafe_allow_html=True)
