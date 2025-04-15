@@ -1,6 +1,8 @@
 import streamlit as st
 import tiktoken
 
+st.set_page_config(page_title="Token Cost Counter", page_icon="📚", layout="wide")
+
 # Token cost data for different models
 model_costs = {
     'GPT-3 (Ada)': 0.000004,
