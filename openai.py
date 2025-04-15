@@ -1,8 +1,6 @@
 import streamlit as st
 import tiktoken
 
-st.set_page_config(page_title="Token Cost Counter", page_icon="📚", layout="wide")
-
 # Token cost data for different models
 model_costs = {
     'GPT-3 (Ada)': 0.000004,
@@ -28,7 +26,11 @@ model_costs = {
 st.set_page_config(page_title="Token Counter & Cost Estimator", page_icon="📚", layout="centered")
 
 # Title and Introduction
-st.title("📚 Token Counter & Cost Estimator")
+st.markdown("""
+    <h1 style='text-align: center; font-size: 32px;'>📚 Token Counter & Cost Estimator</h1>
+    <p style='text-align: center;'>Estimate tokens and cost for popular AI models like GPT, Claude, Gemini, and more!</p>
+    <hr style='margin-top: -10px; margin-bottom: 20px;'>
+""", unsafe_allow_html=True)
 st.markdown("""
     This tool helps you calculate the number of tokens in your text and estimate the cost for using various AI models, such as GPT-3, GPT-4, and more.
     You can choose from a variety of models in the dropdown and see the estimated cost based on the number of tokens.
