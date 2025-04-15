@@ -28,4 +28,5 @@ Once you click "Calculate," the tool will display the number of tokens in the te
 ## Visual Example:
 
 ### **Token Counter & Cost Estimator UI Layout:**
-
+![alt text](<Screenshot 2025-04-15 162645.png>)
+![alt text](<Screenshot 2025-04-15 162657.png>)
